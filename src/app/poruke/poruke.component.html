@@ -1,0 +1,6 @@
+<div *ngIf="porukaServis.poruka.length">
+  <h2>Poruke za domacice</h2>
+  <button class="clear"
+          (click)="porukaServis.obrisi()">Obrisi</button>
+  <div *ngFor='let poruka of porukaServis.poruka'>{{poruka}}</div>
+</div>

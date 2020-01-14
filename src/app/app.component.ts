@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tour of Heores';
+  // definisu se promjenjljve koji se prikazuju svuda
 }

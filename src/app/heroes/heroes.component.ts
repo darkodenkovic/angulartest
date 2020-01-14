@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
+// import {HEROJI} from '../sprdnja-heroji';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -8,16 +10,25 @@ import { Hero } from '../hero';
 })
 
 export class HeroesComponent implements OnInit {
-  hero: Hero = {
+  heroji: Hero[];  // heroji - niz heroja
+  // *******************************************************
+  // ******************************************************
+  /*izabraniHeroj: Hero;
+   = {
     id: 1,
-    name: 'Windstorm'
-  };
-  heroj: Hero ={
-    id: 2,
     name: 'Misko'
+  };
+  onSelect(heroj: Hero): void {
+    this.izabraniHeroj = heroj;
+  }*/
+  // heroji = HEROJI; bez koriscenja servisa
+  constructor(private heroService: HeroService) { }
+  uzmiHeroje(): void {
+    this.heroService.uzmiHeroja()
+    .subscribe(heroji => this.heroji = heroji);
   }
-  constructor() { }
   ngOnInit() {
+    this.uzmiHeroje();
+    // uzmiHeroje() - definisana da kada se ucita komponenta uz pomoc servisa hero.service.uzmiHeroja() popuni listu heroja
   }
-
 }
